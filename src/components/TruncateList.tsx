@@ -16,7 +16,7 @@ export default defineComponent({
   name: 'TruncateList',
   props: {
     renderTruncator: {
-      type: Function as PropType<({ hiddenItemsCount }: { hiddenItemsCount: number }) => string | VNode>,
+      type: Function as PropType<({ hiddenItemsCount, truncate }: { hiddenItemsCount: number, truncate: () => void }) => string | VNode>,
       required: true
     },
     alwaysShowTruncator: {
@@ -134,7 +134,7 @@ export default defineComponent({
 
     const items = children.map((item, index) => {
       return [
-        h('li', { hidden: true }, renderTruncator({ hiddenItemsCount: children.length - index })),
+        h('li', { hidden: true }, renderTruncator({ hiddenItemsCount: children.length - index, truncate })),
         h('li', {}, item)
       ]
     });
@@ -155,7 +155,7 @@ export default defineComponent({
     return () => {
       return h('ul', { class: 'v-truncate-list', ref: containerRef }, [
         ...items.flat(),
-        h('li', { hidden: true }, renderTruncator({ hiddenItemsCount: 0 }))
+        h('li', { hidden: true }, renderTruncator({ hiddenItemsCount: 0, truncate }))
       ])
     }
   }

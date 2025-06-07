@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, h } from 'vue'
+import { ref, h, nextTick } from 'vue'
 import TruncateList from './components/TruncateList'
 
 const expanded = ref(false)
@@ -56,9 +56,7 @@ const handleCollapse = () => { expanded.value = false }
     <h2>Playground</h2>
     <p>Resize to see it adapt to different container sizes</p>
     <div class="demo">
-      <TruncateList class="list resizable" :renderTruncator="({ hiddenItemsCount }) => (
-        h('div', { class: 'listItem' }, `+${hiddenItemsCount}`)
-      )">
+      <TruncateList class="list resizable" :renderTruncator="({ hiddenItemsCount }) => (`+${hiddenItemsCount}`)">
         <div class="listItem">foo</div>
         <div class="listItem">bar</div>
         <div class="listItem">baz</div>
@@ -77,13 +75,20 @@ const handleCollapse = () => { expanded.value = false }
     <h2>Expandable list</h2>
     <p>The truncator can have advanced behaviour as seen here</p>
     <div class="demo">
-      <TruncateList :class="['list', 'expandable', expanded ? 'expanded' : '']" alwaysShowTruncator :renderTruncator="({ hiddenItemsCount }) => {
+      <TruncateList :class="['list', 'expandable', expanded ? 'expanded' : '']" alwaysShowTruncator :renderTruncator="({ hiddenItemsCount, truncate }) => {
         if (hiddenItemsCount > 0) {
           return h(
             'button',
             {
               class: 'expandButton',
-              onClick: handleExpand
+              onClick: () => {
+                handleExpand();
+                // Setting the 'expanded' class sets max-height to none, but the container's height does not update.
+                // This means ResizeObserver will not trigger. Therefore, we need to manually call `truncate()` in nextTick to ensure the layout is recalculated.
+                nextTick(() => {
+                  truncate();
+                })
+              }
             },
             `${hiddenItemsCount} more...`
           );
