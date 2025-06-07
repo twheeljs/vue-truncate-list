@@ -9,12 +9,30 @@ const handleCollapse = () => { expanded.value = false }
 
 <template>
   <div>
-    <h1>Vue-truncate-list</h1>
+    <header style="margin-bottom: 24px;">
+      <h1>Vue-truncate-list</h1>
+      <p>
+        <a href="https://github.com/twheeljs/vue-truncate-list" target="_blank" rel="noopener"
+          style="color:#1890ff;text-decoration:none;">
+          GitHub Repository
+        </a>
+        &nbsp;|&nbsp;
+        <span>Author: <a href="https://github.com/niexia" target="_blank" rel="noopener">@niexia</a></span>
+      </p>
+      <p style="color: #888; font-size: 14px;">
+        A flexible Vue 3 component for truncating lists with custom truncator rendering.<br>
+        Designed for both mobile and desktop platforms.
+      </p>
+    </header>
+
     <h2>Use-case</h2>
-    <p>The identical component is designed to be compatible with both mobile devices and desktop platforms.</p>
+    <p>
+      This component is designed to be compatible with both mobile devices and desktop platforms.<br>
+      Easily truncate overflowing list items and provide a custom truncator UI.
+    </p>
     <div class="demo">
       <section class="card mobile">
-        <h3>Skills</h3>
+        <h3>Skills (Mobile)</h3>
         <TruncateList :class="['list']"
           :renderTruncator="({ hiddenItemsCount }) => h('div', { class: 'listItem' }, `+${hiddenItemsCount}`)">
           <div class="listItem">UX</div>
@@ -34,7 +52,7 @@ const handleCollapse = () => { expanded.value = false }
       <br />
 
       <section class="card desktop">
-        <h3>Skills</h3>
+        <h3>Skills (Desktop)</h3>
         <TruncateList :class="['list']" :renderTruncator="({ hiddenItemsCount }) => (
           h('div', { class: 'listItem' }, `+${hiddenItemsCount}`)
         )">
@@ -54,7 +72,10 @@ const handleCollapse = () => { expanded.value = false }
     </div>
 
     <h2>Playground</h2>
-    <p>Resize to see it adapt to different container sizes</p>
+    <p>
+      Resize the container below to see the list adapt dynamically.<br>
+      Try adding or removing items to test truncation.
+    </p>
     <div class="demo">
       <TruncateList class="list resizable" :renderTruncator="({ hiddenItemsCount }) => (`+${hiddenItemsCount}`)">
         <div class="listItem">foo</div>
@@ -72,8 +93,11 @@ const handleCollapse = () => { expanded.value = false }
       </TruncateList>
     </div>
 
-    <h2>Expandable list</h2>
-    <p>The truncator can have advanced behaviour as seen here</p>
+    <h2>Expandable List</h2>
+    <p>
+      The truncator can have advanced behavior, such as expanding to show all items.<br>
+      Click the truncator button to expand or collapse the list.
+    </p>
     <div class="demo">
       <TruncateList :class="['list', 'expandable', expanded ? 'expanded' : '']" alwaysShowTruncator :renderTruncator="({ hiddenItemsCount, truncate }) => {
         if (hiddenItemsCount > 0) {
@@ -83,8 +107,9 @@ const handleCollapse = () => { expanded.value = false }
               class: 'expandButton',
               onClick: () => {
                 handleExpand();
-                // Setting the 'expanded' class sets max-height to none, but the container's height does not update.
-                // This means ResizeObserver will not trigger. Therefore, we need to manually call `truncate()` in nextTick to ensure the layout is recalculated.
+                // Setting the 'expanded' class sets max-height to none, but the container's height does not update immediately.
+                // This means ResizeObserver will not trigger, since the DOM size change is not synchronous.
+                // Therefore, we need to manually call `truncate()` in nextTick to ensure the layout is recalculated.
                 nextTick(() => {
                   truncate();
                 })
