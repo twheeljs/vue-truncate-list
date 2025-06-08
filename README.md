@@ -145,6 +145,16 @@ npm install
 npm run dev
 ```
 
+### Commit message
+
+We use [commitlint](https://commitlint.js.org/) to enforce commit message conventions. Please use the following command to commit:
+
+```sh
+npm run commit
+# or
+npx cz
+```
+
 ## Credits
 
 Thanks to
