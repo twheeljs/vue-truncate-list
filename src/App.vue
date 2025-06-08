@@ -20,8 +20,7 @@ const handleCollapse = () => { expanded.value = false }
         <span>Author: <a href="https://github.com/niexia" target="_blank" rel="noopener">@niexia</a></span>
       </p>
       <p style="color: #888; font-size: 14px;">
-        A flexible Vue 3 component for truncating lists with custom truncator rendering.<br>
-        Designed for both mobile and desktop platforms.
+        A flexible Vue 3 component for truncating lists with custom truncator rendering.Designed for both mobile and desktop platforms.
       </p>
     </header>
 
