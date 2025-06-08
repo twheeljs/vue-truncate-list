@@ -4,6 +4,12 @@
     "release": true
   },
   "git": {
-    "commitMessage": "release: ${version}"
+    "commitMessage": "chore: ${version}"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
   }
 }
