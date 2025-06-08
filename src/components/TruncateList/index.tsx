@@ -1,4 +1,4 @@
-import { defineComponent, h, onMounted, onUnmounted, ref, type PropType, type VNode } from 'vue'
+import { defineComponent, h, onMounted, onUnmounted, ref, type PropType, type VNode } from 'vue-demi'
 import "./index.css"
 
 // This constant defines a small tolerance for comparing DOMRect properties (like top, bottom, left, right).

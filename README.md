@@ -1,6 +1,6 @@
 # vue-truncate-list
 
-A flexible Vue 3 component for truncating lists with custom truncator rendering. Designed for both mobile and desktop platforms.
+A flexible Vue 2 & Vue 3 component for truncating lists with custom truncator rendering. Designed for both mobile and desktop platforms.
 
 [![NPM version](https://img.shields.io/npm/v/vue-truncate-list.svg?style=flat)](https://npmjs.com/package/vue-truncate-list)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)

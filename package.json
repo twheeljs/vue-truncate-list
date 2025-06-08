@@ -11,10 +11,20 @@
     "build:lib": "vue-tsc -b && vite build --mode lib",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "vue-demi": "^0.14.10"
+  },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "@vue/composition-api": "^1.2.0",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "vue": "^3.0.0",
     "@types/node": "^22.15.30",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
