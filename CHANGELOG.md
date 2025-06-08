@@ -1,0 +1,20 @@
+# Changelog
+
+## 0.2.0 (2025-06-08)
+
+* chore: add @release-it/conventional-changelog to generate changelog ([adea609](https://github.com/twheeljs/vue-truncate-list/commit/adea609))
+* chore: add commitizen and commitlint for standardized commit messages ([33664fd](https://github.com/twheeljs/vue-truncate-list/commit/33664fd))
+* chore: add release-it for automated releases and update package.json scripts ([32c95ff](https://github.com/twheeljs/vue-truncate-list/commit/32c95ff))
+* chore: update .release-it.json to include git commit message format ([10ddd92](https://github.com/twheeljs/vue-truncate-list/commit/10ddd92))
+* feat: add TruncateList component with styling ([8f63dc9](https://github.com/twheeljs/vue-truncate-list/commit/8f63dc9))
+* feat: adjust Vite config for library build ([9056f14](https://github.com/twheeljs/vue-truncate-list/commit/9056f14))
+* feat: enhance App.vue with header information and improved descriptions ([5b06e2d](https://github.com/twheeljs/vue-truncate-list/commit/5b06e2d))
+* feat: enhance TruncateList component to support truncation callback in renderTruncator ([2cd979a](https://github.com/twheeljs/vue-truncate-list/commit/2cd979a))
+* feat: flow design ([84b8c73](https://github.com/twheeljs/vue-truncate-list/commit/84b8c73))
+* feat: initialize Vue 3 project with Vite ([1e6fa53](https://github.com/twheeljs/vue-truncate-list/commit/1e6fa53))
+* feat: support vue 2 & vue 3 ([b93a3c0](https://github.com/twheeljs/vue-truncate-list/commit/b93a3c0))
+* feat: update App.vue with usage examples ([348b765](https://github.com/twheeljs/vue-truncate-list/commit/348b765))
+* feat: update package.json with scoped name, author, keywords, files, and publish configuration ([61bd021](https://github.com/twheeljs/vue-truncate-list/commit/61bd021))
+* feat: update README.md with correct package name and additional badges for npm bundle size and downl ([0c6f1bc](https://github.com/twheeljs/vue-truncate-list/commit/0c6f1bc))
+* feat: update README.md with detailed features, installation, and usage examples; bump version to 0.1 ([0294ea3](https://github.com/twheeljs/vue-truncate-list/commit/0294ea3))
+* Initial commit ([695cdff](https://github.com/twheeljs/vue-truncate-list/commit/695cdff))
