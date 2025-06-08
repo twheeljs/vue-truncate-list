@@ -148,11 +148,17 @@ npm run dev
 ### Commit message
 
 We use [commitlint](https://commitlint.js.org/) to enforce commit message conventions. Please use the following command to commit:
-
 ```sh
 npm run commit
 # or
 npx cz
+```
+
+### release
+
+We use [release-it](https://github.com/release-it/release-it) to release. Please use the following command to release:
+```sh
+npm run release
 ```
 
 ## Credits
