@@ -1,6 +1,6 @@
 {
   "name": "@twheeljs/vue-truncate-list",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A flexible Vue component for truncating lists with custom truncator rendering.",
   "author": "yangjin.fe@gmail.com",
   "keywords": [
