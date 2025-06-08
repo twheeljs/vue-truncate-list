@@ -2,8 +2,10 @@
 
 A flexible Vue 2 & Vue 3 component for truncating lists with custom truncator rendering. Designed for both mobile and desktop platforms.
 
-[![NPM version](https://img.shields.io/npm/v/vue-truncate-list.svg?style=flat)](https://npmjs.com/package/vue-truncate-list)
+[![NPM version](https://img.shields.io/npm/v/@twheeljs/vue-truncate-list.svg?style=flat)](https://www.npmjs.com/package/@twheeljs/vue-truncate-list)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/@twheeljs/vue-truncate-list?label=size)](https://bundlephobia.com/package/@twheeljs/vue-truncate-list)
+[![npm downloads](https://img.shields.io/npm/dm/@twheeljs/vue-truncate-list.svg?label=downloads)](https://www.npmjs.com/package/@twheeljs/vue-truncate-list)
 
 ## Features
 
@@ -20,9 +22,9 @@ See [src/App.vue](src/App.vue) for usage examples.
 ## Installation
 
 ```sh
-npm install vue-truncate-list
+npm install @twheeljs/vue-truncate-list
 # or
-yarn add vue-truncate-list
+yarn add @twheeljs/vue-truncate-list
 ```
 
 ## Usage
@@ -68,9 +70,7 @@ export default {
             class: 'expandButton',
             onClick: () => {
               handleExpand();
-              // Setting the 'expanded' class sets max-height to none, but the container's height does not update immediately.
-              // This means ResizeObserver will not trigger, since the DOM size change is not synchronous.
-              // Therefore, we need to manually call `truncate()` in nextTick to ensure the layout is recalculated.
+              // Manually call truncate() in nextTick to ensure layout is recalculated
               nextTick(() => {
                 truncate();
               })
@@ -123,7 +123,8 @@ export default {
 </script>
 ```
 
-### Props
+Note: In this case, setting the 'expanded' class sets max-height to none, but the container's height does not update immediately. This means ResizeObserver will not trigger.
+Therefore, we need to manually call `truncate()` in nextTick to ensure the layout is recalculated.
 
 ### Props
 
@@ -140,6 +141,7 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ### Getting started
 ```sh
 npm install
+
 npm run dev
 ```
 
