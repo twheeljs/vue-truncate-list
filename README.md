@@ -15,7 +15,7 @@ A flexible Vue 3 component for truncating lists with custom truncator rendering.
 ## Demo
 
 See [src/App.vue](src/App.vue) for usage examples.
-![demo](./public/demo.gif)
+![demo](./docs/demo.gif)
 
 ## Installation
 

@@ -15,5 +15,5 @@
     "jsx": "preserve",
     "jsxImportSource": "vue"
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/components/TruncateList.tsx", "src/App.vue"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/components/TruncateList/index.tsx", "src/App.vue"]
 }

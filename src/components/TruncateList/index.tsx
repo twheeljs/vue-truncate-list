@@ -1,8 +1,19 @@
 import { defineComponent, h, onMounted, onUnmounted, ref, type PropType, type VNode } from 'vue'
-import "./TruncateList.css"
+import "./index.css"
 
+// This constant defines a small tolerance for comparing DOMRect properties (like top, bottom, left, right).
+// It helps handle tiny differences caused by how browsers calculate and display elements on screen,
+// especially at non-100% zoom levels, ensuring robust comparisons instead of strict equality.
 const PIXEL_TOLERANCE = 0.001;
 
+/**
+ * Determines whether the `child` DOMRect is fully contained within the `parent` DOMRect,
+ * allowing for a small margin of error defined by `PIXEL_TOLERANCE`.
+ *
+ * @param parent - The parent DOMRect to check containment within.
+ * @param child - The child DOMRect to check if it is contained by the parent.
+ * @returns `true` if the child is fully contained within the parent (with tolerance), otherwise `false`.
+ */
 const rectContainsRect = (parent: DOMRect, child: DOMRect) => {
   return (
     child.left >= parent.left - PIXEL_TOLERANCE &&
@@ -51,7 +62,7 @@ export default defineComponent({
       container.style.overflow = 'hidden';
       // Show all items, hide all truncators
       for (let i = 0; i < childNodes.length; i++) {
-        childNodes[i].hidden = i % 2 === 0;
+        (childNodes[i] as HTMLElement).hidden = i % 2 === 0;
       }
       // If there are no items (this last truncator is always included), return.
       if (childNodes.length === 0) {
@@ -62,7 +73,7 @@ export default defineComponent({
        * Test if truncation is necessary.
        */
       if (alwaysShowTruncator) {
-        const lastItem = childNodes[childNodes.length - 1];
+        const lastItem = childNodes[childNodes.length - 1] as HTMLElement;
         lastItem.hidden = false;
         // if last item is fit, return
         if (isLastItemFit(lastItem)) {
@@ -91,14 +102,14 @@ export default defineComponent({
         
         // show all items before the truncator
         for (let i = 0; i < middle; i++) {
-          childNodes[i * 2 + 1].hidden = false;
+          (childNodes[i * 2 + 1] as HTMLElement).hidden = false;
         }
         // hide all items after the truncator
         for (let i = middle; i < numTruncators; i++) {
-          childNodes[i * 2 + 1].hidden = true;
+          (childNodes[i * 2 + 1] as HTMLElement).hidden = true;
         }
 
-        const truncatorElement = childNodes[middle * 2];
+        const truncatorElement = childNodes[middle * 2] as HTMLElement;
         truncatorElement.hidden = false;
 
         if (isLastItemFit(truncatorElement)) {
@@ -122,13 +133,13 @@ export default defineComponent({
        */
       // Show all items before the truncator.
       for (let i = 0; i < truncatorIndex; i++) {
-        childNodes[i * 2 + 1].hidden = false;
+        (childNodes[i * 2 + 1] as HTMLElement).hidden = false;
       }
       // hide all truncators after the truncator
       for (let i = truncatorIndex; i < numTruncators; i++) {
-        childNodes[i * 2 + 1].hidden = true;
+        (childNodes[i * 2 + 1] as HTMLElement).hidden = true;
       }
-      const truncatorElement = childNodes[truncatorIndex * 2];
+      const truncatorElement = childNodes[truncatorIndex * 2] as HTMLElement;
       truncatorElement.hidden = false;
     }
 
