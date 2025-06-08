@@ -1,0 +1,14 @@
+.v-truncate-list {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: auto;
+  display: flex;
+}
+
+.v-truncate-list *,
+.v-truncate-list *::before,
+.v-truncate-list *::after {
+  box-sizing: inherit;
+}
