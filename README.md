@@ -16,7 +16,7 @@ A flexible Vue 2 & Vue 3 component for truncating lists with custom truncator re
 
 ## Demo
 
-See [src/App.vue](src/App.vue) for usage examples.
+See [Live Demo](https://twheeljs.github.io/vue-truncate-list/) or [src/App.vue](src/App.vue) for usage examples.
 ![demo](./docs/demo.gif)
 
 ## Installation
@@ -50,74 +50,6 @@ import TruncateList from './components/TruncateList'
 export default {
   components: {
     TruncateList
-  }
-}
-</script>
-```
-
-### Expandable List Example
-
-```vue
-<template>
-  <TruncateList 
-    :class="['list', 'expandable', expanded ? 'expanded' : '']" 
-    :alwaysShowTruncator="true"
-    :renderTruncator="({ hiddenItemsCount, truncate }) => {
-      if (hiddenItemsCount > 0) {
-        return h(
-          'button',
-          {
-            class: 'expandButton',
-            onClick: () => {
-              handleExpand();
-              // Manually call truncate() in nextTick to ensure layout is recalculated
-              nextTick(() => {
-                truncate();
-              })
-            }
-          },
-          `${hiddenItemsCount} more...`
-        );
-      } else {
-        return h(
-          'button',
-          {
-            class: 'expandButton',
-            onClick: handleCollapse
-          },
-          'hide'
-        );
-      }
-    }"
-  >
-    <div class="listItem">foo</div>
-    <!-- ... -->
-    <div class="listItem">thud</div>
-  </TruncateList>
-</template>
-
-<script>
-import { h, ref, nextTick } from 'vue'
-import TruncateList from './components/TruncateList'
-
-export default {
-  components: {
-    TruncateList
-  },
-  setup() {
-    const expanded = ref(false);
-    const handleExpand = () => {
-      expanded.value = true;
-    }
-    const handleCollapse = () => {
-      expanded.value = false;
-    }
-
-    return {
-      expanded,
-      handleExpand,
-      handleCollapse
-    }
   }
 }
 </script>
