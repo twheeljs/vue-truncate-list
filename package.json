@@ -27,7 +27,9 @@
     "build:lib": "vue-tsc -b && vite build --mode lib",
     "preview": "vite preview",
     "commit": "cz",
-    "release": "release-it"
+    "release": "release-it",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue-demi": "^0.14.10"
@@ -50,6 +52,7 @@
     "@vue/tsconfig": "^0.7.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "release-it": "^19.0.3",
     "typescript": "~5.8.3",

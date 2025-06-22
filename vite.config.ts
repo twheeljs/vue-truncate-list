@@ -5,6 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig(({mode}) => {
   const baseConfig = {
+    base: '/vue-truncate-list/',
     plugins: [vue()],
   };
 
